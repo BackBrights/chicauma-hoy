@@ -1461,7 +1461,7 @@
   <!-- MODAL NOTICIA COMPLETA -->
   <div class="modal-backdrop" id="newsModalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="newsModalTitle">
-      <button class="modal-close" id="newsModalCloseButton" aria-label="Cerrar">
+      <button class="news-modal-close modal-close" id="newsModalCloseButton" aria-label="Cerrar">
         ✕
       </button>
       <div class="modal-header">
@@ -1709,7 +1709,7 @@
         <!-- Clasificados generados por JS -->
       </div>
 
-      <!-- FORMULARIO CLASIFICADOS (NETLIFY READY) -->
+      <!-- FORMULARIO CLASIFICADOS -->
       <div class="info-card">
         <h3>Publicar clasificado gratuito</h3>
         <p style="font-size:0.8rem; color:var(--color-muted); margin-bottom:0.5rem;">
@@ -1717,20 +1717,8 @@
           <strong>Máx. 80 caracteres en el título y 400 en la descripción.</strong><br />
           En esta versión beta, los avisos nuevos pueden quedar pendientes de revisión antes de mostrarse.
         </p>
-        <form
-          id="classifiedForm"
-          name="classified"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="classified" />
-          <p style="display:none;">
-            <label>Si ves este campo, déjalo vacío:
-              <input name="bot-field" />
-            </label>
-          </p>
-
+        <form id="classifiedForm" name="clasificados" data-netlify="true">
+          <input type="hidden" name="form-name" value="clasificados" />
           <div class="form-grid">
             <div class="form-group">
               <label for="classifiedTipo">Tipo de aviso</label>
@@ -2004,7 +1992,7 @@
       </div>
     </section>
 
-    <!-- FORMULARIO EMPRENDIMIENTOS (NETLIFY READY) -->
+    <!-- FORMULARIO EMPRENDIMIENTOS -->
     <section id="form-emprendimiento">
       <div class="section-header">
         <div>
@@ -2013,20 +2001,8 @@
         </div>
       </div>
       <div class="info-card">
-        <form
-          id="businessForm"
-          name="business"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="business" />
-          <p style="display:none;">
-            <label>Si ves este campo, déjalo vacío:
-              <input name="bot-field" />
-            </label>
-          </p>
-
+        <form id="businessForm" name="emprendimientos" data-netlify="true">
+          <input type="hidden" name="form-name" value="emprendimientos" />
           <div class="form-grid">
             <div class="form-group">
               <label for="businessNombre">Nombre del emprendimiento</label>
@@ -2638,16 +2614,27 @@
     }
 
     // =============================
-    // NETLIFY FORM HELPER
+    // NETLIFY FORMS: HELPER
     // =============================
-    function sendToNetlify(formElement) {
-      const formData = new FormData(formElement);
-      return fetch("/", {
+    function submitNetlifyForm(formName, fields) {
+      const data = {
+        "form-name": formName,
+        ...fields
+      };
+
+      const encoded = Object.keys(data)
+        .map(
+          (key) =>
+            encodeURIComponent(key) + "=" + encodeURIComponent(data[key] ?? "")
+        )
+        .join("&");
+
+      fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
+        body: encoded
       }).catch((err) => {
-        console.error("Error enviando a Netlify:", err);
+        console.error("Error enviando datos a Netlify", err);
       });
     }
 
@@ -3349,14 +3336,21 @@
           aprobado: !MODERAR_CLASIFICADOS
         };
 
-        clasificados.unshift(nuevo);
+        // Enviar a Netlify Forms
+        submitNetlifyForm("clasificados", {
+          tipo,
+          titulo,
+          detalles,
+          precio,
+          whatsapp
+        });
 
-        // Enviar a Netlify (backend)
-        sendToNetlify(classifiedFormEl);
+        // Mantener comportamiento local (moderación / autopublicación)
+        clasificados.unshift(nuevo);
 
         if (MODERAR_CLASIFICADOS) {
           alert(
-            "Gracias por tu aviso. En esta versión beta quedará pendiente de revisión antes de mostrarse en la lista."
+            "Gracias por tu aviso. Tu clasificado se ha enviado y quedará pendiente de revisión antes de mostrarse en la lista."
           );
           if (isAdmin) {
             renderAdminPending();
@@ -3405,11 +3399,22 @@
           return;
         }
 
-        // Enviar a Netlify (backend)
-        sendToNetlify(businessFormEl);
+        // Enviar a Netlify Forms
+        submitNetlifyForm("emprendimientos", {
+          nombre,
+          categoria,
+          descripcion,
+          whatsapp,
+          instagram,
+          web,
+          sector,
+          horario,
+          delivery: delivery ? "sí" : "no",
+          plan
+        });
 
         alert(
-          "¡Gracias! Tus datos se han registrado en esta versión beta. Más adelante podrás conectarlo a un backend para que la ficha se genere automáticamente."
+          "¡Gracias! Tus datos se han enviado. Revisaremos tu ficha y podremos contactarte por WhatsApp o Instagram si necesitamos algo más."
         );
 
         businessFormEl.reset();
