@@ -1790,16 +1790,19 @@
       </div>
     </section>
 
-    <!-- PANEL ADMIN (FAKE) -->
+    <!-- PANEL ADMIN (SIMULADO SOLO EN FRONTEND) -->
     <section id="admin-panel">
       <div class="section-header">
         <div>
           <h2>Panel de administración</h2>
-          <p>Solo visible en este navegador tras ingresar el código de acceso.</p>
+          <p>
+            Simula la moderación local en este navegador tras ingresar el código.
+            Los cambios no se guardan en un backend y se pierden al recargar.
+          </p>
         </div>
         <span class="admin-badge">
           🛠️
-          <span>Modo admin activo</span>
+          <span>Modo admin activo (solo local)</span>
         </span>
       </div>
       <div class="info-card">
@@ -2314,6 +2317,25 @@
         ofertaVecinos: "",
         beneficioVecinos: "",
         plan: "gratis"
+      },
+      {
+        id: 9,
+        nombre: "prueba",
+        categoria: "comida",
+        descripcion: "pruea",
+        whatsapp: "",
+        instagram: "",
+        web: "",
+        sector: "Chicauma",
+        etiquetas: [],
+        horario: "",
+        delivery: false,
+        premium: false,
+        recomendado: false,
+        nuevo: true,
+        ofertaVecinos: "",
+        beneficioVecinos: "",
+        plan: "gratis"
       }
     ];
 
@@ -2457,7 +2479,7 @@
       },
       {
         label: "Aviso",
-        text: "Corte programado de agua el jueves 18 de diciembre en sector Chicauma.",
+        text: "Corte programado de agua el jueves 18 de diciembre en el sector Chicauma.",
         link: "#noticias"
       },
       {
@@ -3318,6 +3340,21 @@
           return;
         }
 
+        const cleanWhatsapp = whatsapp.replace(/[^0-9]/g, "");
+        const isValidWhatsapp = /^56\d{9}$/.test(cleanWhatsapp);
+
+        if (!isValidWhatsapp) {
+          alert(
+            "Ingresa un WhatsApp válido de Chile con 11 dígitos (incluye el 56)."
+          );
+          return;
+        }
+
+        const formattedWhatsapp = `+${cleanWhatsapp.slice(0, 2)} ${cleanWhatsapp.slice(
+          2,
+          3
+        )} ${cleanWhatsapp.slice(3, 7)} ${cleanWhatsapp.slice(7)}`;
+
         const today = new Date();
         const fechaStr = today.toLocaleDateString("es-CL", {
           day: "2-digit",
@@ -3331,7 +3368,7 @@
           titulo,
           fecha: `Publicado: ${fechaStr}`,
           descripcion: detalles,
-          contacto: `WhatsApp +${whatsapp}`,
+          contacto: `WhatsApp ${formattedWhatsapp}`,
           precio: precio || "",
           aprobado: !MODERAR_CLASIFICADOS
         };
@@ -3342,7 +3379,7 @@
           titulo,
           detalles,
           precio,
-          whatsapp
+          whatsapp: cleanWhatsapp
         });
 
         // Mantener comportamiento local (moderación / autopublicación)
@@ -3438,6 +3475,41 @@
           alert("Código incorrecto.");
         }
       });
+    }
+
+    // =============================
+    // TEST HOOKS (solo para pruebas automatizadas)
+    // =============================
+    if (typeof window !== "undefined") {
+      window.__appTestExports = {
+        renderBusinesses,
+        getFilteredBusinesses,
+        sortBusinesses,
+        setCategory: (category) => {
+          currentCategory = category;
+        },
+        setOrder: (order) => {
+          currentOrder = order;
+          if (orderSelectEl) orderSelectEl.value = order;
+        },
+        setSearch: (value) => {
+          if (searchInputEl) searchInputEl.value = value;
+        },
+        setSector: (value) => {
+          if (sectorSelectEl) sectorSelectEl.value = value;
+        },
+        setDeliveryOnly: (value) => {
+          if (deliveryOnlyCheckboxEl) deliveryOnlyCheckboxEl.checked = value;
+        },
+        resetFilters: () => {
+          currentCategory = "todos";
+          currentOrder = "relevancia";
+          if (searchInputEl) searchInputEl.value = "";
+          if (sectorSelectEl) sectorSelectEl.value = "todos";
+          if (deliveryOnlyCheckboxEl) deliveryOnlyCheckboxEl.checked = false;
+          if (orderSelectEl) orderSelectEl.value = "relevancia";
+        }
+      };
     }
 
     // =============================
