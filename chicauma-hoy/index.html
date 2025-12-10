@@ -1,0 +1,3454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chicauma Hoy · Guía Local de Chicauma y Lampa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Chicauma Hoy es la guía local colaborativa de Chicauma y Lampa: emprendimientos, servicios, noticias, clasificados, eventos y datos útiles para tu día a día en el barrio."
+  />
+  <meta property="og:title" content="Chicauma Hoy · Guía Local" />
+  <meta
+    property="og:description"
+    content="Encuentra emprendimientos, noticias, clasificados, servicios y panoramas en Chicauma y Lampa."
+  />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --color-brand: #ff7b3a;
+      --color-brand-soft: #ffe4d4;
+      --color-accent: #1fa27a;
+      --color-bg: #f6f6fa;
+      --color-bg-soft: #fdfcfb;
+      --color-text: #22222a;
+      --color-muted: #76768a;
+      --color-border: #e0e0f0;
+      --shadow-soft: 0 10px 28px rgba(15, 24, 41, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #fff9f3, #f6f6fa);
+      color: var(--color-text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(246, 246, 250, 0.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(224, 224, 240, 0.9);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 20% 20%, #ffe8bf, #ff7b3a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 14px rgba(255, 123, 58, 0.5);
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo-text span:first-child {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .nav-logo-text span:last-child {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      color: var(--color-muted);
+      transition: var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(255, 123, 58, 0.25);
+      background: rgba(255, 123, 58, 0.06);
+      color: var(--color-brand);
+    }
+
+    .nav-cta {
+      border-radius: var(--radius-pill);
+      border: none;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--color-brand);
+      color: #ffffff;
+      box-shadow: 0 6px 15px rgba(255, 123, 58, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+
+    .nav-cta span.icon {
+      font-size: 1.05rem;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* PRO BANNER STRIP (PLAN PRO) */
+
+    .pro-banner-strip {
+      background: #111827;
+      color: #f9fafb;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.7);
+      overflow: hidden;
+      font-size: 0.8rem;
+    }
+
+    .pro-banner-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.25rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pro-banner-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fbbf24;
+      white-space: nowrap;
+    }
+
+    .pro-banner-inner {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pro-banner-track {
+      display: inline-flex;
+      align-items: stretch;
+      white-space: nowrap;
+      animation: proBannerScroll 28s linear infinite;
+    }
+
+    .pro-banner-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.25rem 1.4rem;
+      border-right: 1px solid rgba(55, 65, 81, 0.7);
+    }
+
+    .pro-banner-item-title {
+      font-weight: 700;
+    }
+
+    .pro-banner-item-text {
+      color: #e5e7eb;
+    }
+
+    .pro-banner-item-cta {
+      font-size: 0.76rem;
+      padding: 0.16rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #f97316;
+      color: #fed7aa;
+    }
+
+    .pro-banner-item:hover .pro-banner-item-text {
+      text-decoration: underline;
+    }
+
+    @keyframes proBannerScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .pro-banner-wrapper {
+        padding-inline: 0.7rem;
+      }
+      .pro-banner-item {
+        padding-right: 1rem;
+      }
+    }
+
+    /* TICKER (INFO GENERAL) */
+
+    .ticker {
+      background: #020617;
+      color: #e5e7eb;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.7);
+      overflow: hidden;
+      font-size: 0.78rem;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: tickerScroll 25s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 1.6rem 0.35rem 0.9rem;
+      border-right: 1px solid rgba(55, 65, 81, 0.7);
+    }
+
+    .ticker-item span.dot {
+      font-size: 0.7rem;
+      color: #facc15;
+    }
+
+    .ticker-item span.label {
+      font-weight: 700;
+      color: #f9fafb;
+    }
+
+    .ticker-item span.text {
+      color: #e5e7eb;
+    }
+
+    .ticker-item:hover span.text {
+      text-decoration: underline;
+    }
+
+    @keyframes tickerScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .ticker-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0 1rem;
+    }
+
+    .ticker-title {
+      font-weight: 700;
+      color: #fbbf24;
+      white-space: nowrap;
+      margin-right: 0.5rem;
+    }
+
+    @media (max-width: 720px) {
+      .ticker-wrapper {
+        padding-inline: 0.6rem;
+      }
+      .ticker-item {
+        padding-right: 1rem;
+      }
+    }
+
+    /* LAYOUT MAIN */
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1rem 1rem 4rem;
+    }
+
+    section {
+      margin-top: 2rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3.1fr) minmax(0, 2.3fr);
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .badge-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: var(--radius-pill);
+      background: var(--color-brand-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-brand);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.1vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--color-muted);
+      margin-bottom: 0.9rem;
+      max-width: 34rem;
+    }
+
+    .hero-search-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 1rem 1rem 0.9rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(224, 224, 240, 0.95);
+    }
+
+    .hero-search-top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-search-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+    }
+
+    .search-input-wrap span.icon {
+      font-size: 0.95rem;
+      color: var(--color-muted);
+    }
+
+    .search-input-wrap input {
+      border: none;
+      outline: none;
+      background: transparent;
+      width: 100%;
+      font-size: 0.85rem;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      border: none;
+      padding: 0.42rem 0.95rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--color-brand);
+      color: #ffffff;
+      box-shadow: 0 5px 14px rgba(255, 123, 58, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      opacity: 0.98;
+    }
+
+    .hero-filters-label {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border);
+      padding: 0.2rem 0.75rem;
+      font-size: 0.78rem;
+      background: #ffffff;
+      color: var(--color-muted);
+      transition: var(--transition-fast);
+    }
+
+    .chip:hover {
+      border-color: rgba(31, 162, 122, 0.4);
+      color: var(--color-accent);
+    }
+
+    .chip.active {
+      background: var(--color-accent);
+      color: #ffffff;
+      border-color: var(--color-accent);
+      box-shadow: 0 4px 10px rgba(31, 162, 122, 0.4);
+    }
+
+    .hero-extra-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.55rem;
+      border-top: 1px dashed var(--color-border);
+      padding-top: 0.5rem;
+    }
+
+    .hero-extra-filters select,
+    .hero-extra-filters label {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .hero-extra-filters select {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border);
+      padding: 0.22rem 0.6rem;
+      background: #ffffff;
+    }
+
+    .hero-extra-filters input[type="checkbox"] {
+      margin-right: 0.25rem;
+    }
+
+    .hero-side {
+      background: radial-gradient(circle at 0 0, #ffe9c8, #ff7b3a);
+      border-radius: 26px;
+      padding: 1.2rem 1.15rem;
+      color: #3b2617;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-side::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 95% 0, rgba(255, 255, 255, 0.6), transparent);
+      opacity: 0.9;
+    }
+
+    .hero-side-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-side-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-side-text {
+      font-size: 0.85rem;
+      opacity: 0.95;
+      margin-bottom: 0.8rem;
+    }
+
+    .kpi-row {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .kpi-item span.value {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .kpi-item span.label {
+      opacity: 0.9;
+    }
+
+    .hero-side-foot {
+      margin-top: 0.85rem;
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* SECTIONS */
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: flex-end;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.2rem;
+    }
+
+    .section-header p {
+      font-size: 0.83rem;
+      color: var(--color-muted);
+    }
+
+    .section-tools {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .section-tools select,
+    .section-tools button {
+      font-size: 0.76rem;
+    }
+
+    .section-tools select {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border);
+      padding: 0.2rem 0.6rem;
+      background: #ffffff;
+      color: var(--color-muted);
+    }
+
+    .section-tools button {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border);
+      padding: 0.2rem 0.6rem;
+      background: #ffffff;
+      color: var(--color-muted);
+    }
+
+    .badge-small {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.12rem 0.55rem;
+      border-radius: var(--radius-pill);
+      background: var(--color-brand-soft);
+      color: var(--color-brand);
+      font-size: 0.72rem;
+      font-weight: 700;
+      gap: 0.2rem;
+      white-space: nowrap;
+    }
+
+    /* DIRECTORIO */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--color-bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 0.85rem 0.95rem;
+      border: 1px solid rgba(224, 224, 240, 0.95);
+      box-shadow: 0 6px 18px rgba(15, 24, 41, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      position: relative;
+    }
+
+    .card-premium {
+      border-color: rgba(255, 123, 58, 0.85);
+      box-shadow: 0 6px 22px rgba(255, 123, 58, 0.3);
+      background: #fffaf6;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .card-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 0 0, #ffe9c8, #ffb06a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #5b351d;
+      flex-shrink: 0;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .card-pill {
+      font-size: 0.65rem;
+      padding: 0.06rem 0.4rem;
+      border-radius: var(--radius-pill);
+      background: rgba(31, 162, 122, 0.09);
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      color: var(--color-text);
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.1rem;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      padding: 0.08rem 0.45rem;
+      border-radius: var(--radius-pill);
+      background: #ffffff;
+      color: var(--color-muted);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+    }
+
+    .card-footer-left {
+      color: var(--color-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .card-footer-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      justify-content: flex-end;
+    }
+
+    .btn-pill {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border);
+      padding: 0.22rem 0.6rem;
+      font-size: 0.75rem;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+
+    .btn-pill.primary {
+      border-color: var(--color-accent);
+      background: var(--color-accent);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(31, 162, 122, 0.45);
+    }
+
+    .btn-pill:hover {
+      border-color: rgba(31, 162, 122, 0.5);
+      color: var(--color-accent);
+    }
+
+    .btn-pill.primary:hover {
+      color: #ffffff;
+      transform: translateY(-0.5px);
+    }
+
+    .card-badge-premium {
+      position: absolute;
+      top: 0.45rem;
+      right: 0.55rem;
+      font-size: 0.68rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: var(--radius-pill);
+      background: #3a2617;
+      color: #ffe9c8;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .card-badge-premium span.icon {
+      font-size: 0.85rem;
+    }
+
+    /* NOTICIAS */
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .news-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 0.8rem 0.95rem;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 5px 16px rgba(15, 24, 41, 0.06);
+      font-size: 0.83rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .news-tag {
+      font-size: 0.7rem;
+      padding: 0.08rem 0.4rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 123, 58, 0.08);
+      color: var(--color-brand);
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.18rem;
+    }
+
+    .news-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .news-meta {
+      font-size: 0.76rem;
+      color: var(--color-muted);
+    }
+
+    .news-footer {
+      margin-top: 0.2rem;
+      font-size: 0.78rem;
+    }
+
+    .news-footer button {
+      border: none;
+      background: none;
+      color: var(--color-brand);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.78rem;
+      padding: 0;
+    }
+
+    .news-footer button:hover {
+      text-decoration: underline;
+    }
+
+    .news-image {
+      margin-top: 0.4rem;
+      border-radius: 14px;
+      overflow: hidden;
+      max-height: 180px;
+    }
+
+    .news-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* EVENTOS */
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .event-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 0.8rem 0.95rem;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 5px 16px rgba(15, 24, 41, 0.06);
+      font-size: 0.83rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .event-tag {
+      font-size: 0.7rem;
+      padding: 0.08rem 0.4rem;
+      border-radius: var(--radius-pill);
+      background: rgba(31, 162, 122, 0.08);
+      color: var(--color-accent);
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.18rem;
+    }
+
+    .event-title {
+      font-weight: 700;
+    }
+
+    .event-meta {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .event-cta {
+      font-size: 0.78rem;
+      margin-top: 0.2rem;
+    }
+
+    .event-cta a {
+      color: var(--color-brand);
+      font-weight: 600;
+    }
+
+    /* CLASIFICADOS */
+
+    .classifieds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .classified-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 0.8rem 0.95rem;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 5px 16px rgba(15, 24, 41, 0.06);
+      font-size: 0.83rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .classified-tag {
+      font-size: 0.7rem;
+      padding: 0.08rem 0.4rem;
+      border-radius: var(--radius-pill);
+      background: rgba(37, 99, 235, 0.08);
+      color: #1d4ed8;
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.18rem;
+    }
+
+    .classified-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .classified-meta {
+      font-size: 0.76rem;
+      color: var(--color-muted);
+    }
+
+    .classified-footer {
+      margin-top: 0.2rem;
+      font-size: 0.78rem;
+    }
+
+    /* INFO ÚTIL & PLANES */
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 880px) {
+      .two-col-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 4px 14px rgba(15, 24, 41, 0.04);
+      font-size: 0.83rem;
+    }
+
+    .info-card h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .info-list li span.label {
+      font-weight: 600;
+    }
+
+    .info-list li span.value {
+      color: var(--color-muted);
+    }
+
+    .info-note {
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .plan-badge {
+      font-size: 0.72rem;
+      padding: 0.06rem 0.4rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 123, 58, 0.07);
+      color: var(--color-brand);
+      font-weight: 700;
+    }
+
+    .plan-highlight {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      margin-top: 0.3rem;
+    }
+
+    .plan-price {
+      margin-top: 0.3rem;
+      font-size: 0.98rem;
+      font-weight: 800;
+    }
+
+    .plan-price span.period {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      margin-left: 0.25rem;
+    }
+
+    .plan-list {
+      list-style: none;
+      margin-top: 0.45rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .plan-list li {
+      display: flex;
+      gap: 0.25rem;
+      align-items: flex-start;
+    }
+
+    .plan-list li span.bullet {
+      margin-top: 0.1rem;
+    }
+
+    .plan-foot {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    /* FORMULARIOS */
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.6rem;
+    }
+
+    @media (max-width: 720px) {
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      padding: 0.35rem 0.55rem;
+      font-size: 0.82rem;
+      background: #f9fafb;
+    }
+
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-inline {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      margin-top: 0.4rem;
+    }
+
+    .form-inline input[type="checkbox"] {
+      margin: 0;
+    }
+
+    .form-footer {
+      margin-top: 0.7rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    /* FLOATING CTA */
+
+    .floating-cta {
+      position: fixed;
+      right: 0.9rem;
+      bottom: 0.9rem;
+      z-index: 38;
+    }
+
+    .floating-cta button {
+      border-radius: var(--radius-pill);
+      border: none;
+      padding: 0.55rem 0.95rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: var(--color-accent);
+      color: #ffffff;
+      box-shadow: 0 10px 26px rgba(31, 162, 122, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .floating-cta button span.icon {
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding-bottom: 4.8rem;
+      }
+    }
+
+    /* MODAL GENÉRICO */
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 9, 16, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 45;
+      padding: 1rem;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      max-width: 480px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1rem 1rem 0.9rem;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4);
+      position: relative;
+      font-size: 0.84rem;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.6rem;
+      border: none;
+      background: transparent;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--color-muted);
+    }
+
+    .modal-header {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 0 0, #ffe9c8, #ffb06a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #5b351d;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .modal-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+    }
+
+    .modal-subtitle {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .modal-body {
+      margin-top: 0.3rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .modal-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .modal-footer {
+      margin-top: 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .modal-note {
+      font-size: 0.73rem;
+      color: var(--color-muted);
+    }
+
+    .modal-image {
+      margin-bottom: 0.5rem;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ADMIN PANEL */
+
+    #admin-panel {
+      margin-top: 2.5rem;
+      display: none; /* oculto por defecto, se muestra con código */
+    }
+
+    .admin-badge {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: #111827;
+      color: #f9fafb;
+      font-weight: 700;
+      display: inline-flex;
+      gap: 0.3rem;
+      align-items: center;
+    }
+
+    .admin-pending-list {
+      margin-top: 0.7rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .admin-card {
+      border-radius: 14px;
+      border: 1px dashed var(--color-border);
+      padding: 0.6rem 0.7rem;
+      background: #f9fafb;
+      font-size: 0.8rem;
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .admin-card-title {
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+
+    .admin-card-meta {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+    }
+
+    .admin-card-actions {
+      margin-top: 0.3rem;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-admin {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border);
+      padding: 0.18rem 0.6rem;
+      font-size: 0.75rem;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .btn-admin.approve {
+      border-color: #16a34a;
+      color: #166534;
+    }
+
+    .btn-admin.delete {
+      border-color: #dc2626;
+      color: #b91c1c;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--color-border);
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      background: #f0f0f8;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer a {
+      color: var(--color-brand);
+      font-weight: 600;
+    }
+
+    #adminAccessButton {
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      padding: 0.18rem 0.7rem;
+      font-size: 0.72rem;
+      background: #ffffff;
+      color: #6b7280;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- MODAL FICHA EMPRENDIMIENTO -->
+  <div class="modal-backdrop" id="businessModalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalCloseButton" aria-label="Cerrar">
+        ✕
+      </button>
+      <div class="modal-header">
+        <div class="modal-avatar" id="modalAvatar">?</div>
+        <div>
+          <div class="modal-title" id="modalTitle">Nombre Emprendimiento</div>
+          <div class="modal-subtitle" id="modalSubtitle">Categoría · Sector</div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="modal-label">Descripción</div>
+          <p id="modalDescription"></p>
+        </div>
+        <div>
+          <div class="modal-label">Horario</div>
+          <p id="modalSchedule"></p>
+        </div>
+        <div>
+          <div class="modal-label">Etiquetas & beneficios</div>
+          <p id="modalTags"></p>
+        </div>
+        <div>
+          <div class="modal-label">Contacto</div>
+          <p id="modalContact"></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-note">
+          Visto en <strong>Chicauma Hoy</strong> · Apoya los negocios locales 💛
+        </div>
+        <div class="modal-actions" id="modalActions"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL NOTICIA COMPLETA -->
+  <div class="modal-backdrop" id="newsModalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="newsModalTitle">
+      <button class="modal-close" id="newsModalCloseButton" aria-label="Cerrar">
+        ✕
+      </button>
+      <div class="modal-header">
+        <div class="modal-avatar" id="newsModalAvatar">📰</div>
+        <div>
+          <div class="modal-title" id="newsModalTitle">Título noticia</div>
+          <div class="modal-subtitle" id="newsModalSubtitle">Tipo · Fecha</div>
+        </div>
+      </div>
+      <div id="newsModalImageWrapper" class="modal-image" style="display:none;"></div>
+      <div class="modal-body">
+        <div>
+          <div class="modal-label">Noticia completa</div>
+          <p id="newsModalContent"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <div class="nav-left">
+        <a href="#inicio" aria-label="Ir al inicio">
+          <div class="nav-logo-mark">CH</div>
+        </a>
+        <div class="nav-logo-text">
+          <span>Chicauma Hoy</span>
+          <span>Guía local de Chicauma &amp; Lampa</span>
+        </div>
+      </div>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#directorio">Directorio</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#clasificados">Clasificados</a>
+        <a href="#info-util">Info útil</a>
+        <a href="#planes">Planes</a>
+        <button
+          class="nav-cta"
+          onclick="document.getElementById('form-emprendimiento').scrollIntoView({behavior:'smooth'});"
+        >
+          <span class="icon">➕</span>
+          <span>Agregar mi emprendimiento</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PRO BANNERS PLAN PRO -->
+  <div class="pro-banner-strip" aria-label="Emprendimientos Plan Pro">
+    <div class="pro-banner-wrapper">
+      <span class="pro-banner-label">⭐ Plan Pro · Emprendedor del mes</span>
+      <div class="pro-banner-inner">
+        <div class="pro-banner-track" id="proBannerTrack">
+          <!-- Items generados por JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER INFO GENERAL -->
+  <div class="ticker" aria-label="Información de interés en Chicauma y Lampa">
+    <div class="ticker-wrapper">
+      <span class="ticker-title">Chicauma Hoy ▶</span>
+      <div class="ticker-inner" id="tickerInner">
+        <!-- Items generados por JS -->
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div>
+        <div class="badge-pill">
+          <span class="badge-dot">●</span>
+          <span>Versión beta · Hecha por y para vecinos</span>
+        </div>
+        <h1 class="hero-title">
+          Todo lo que pasa en Chicauma, en un solo lugar.
+        </h1>
+        <p class="hero-subtitle">
+          Descubre emprendimientos, noticias, clasificados, servicios, panoramas y datos clave
+          para tu día a día en Chicauma y Lampa. Busca por categoría o escribe
+          lo que necesitas.
+        </p>
+
+        <div class="hero-search-card" aria-label="Buscador de emprendimientos">
+          <div class="hero-search-top">
+            <div class="hero-search-label">¿Qué necesitas hoy?</div>
+            <div class="search-row">
+              <div class="search-input-wrap">
+                <span class="icon">🔍</span>
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Ej: pan amasado, snacks para perros, gas, manicure…"
+                  aria-label="Buscar emprendimientos"
+                />
+              </div>
+              <button id="searchButton" class="btn-primary">
+                <span>Buscar</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="hero-filters-label">
+            O explora por categoría:
+          </p>
+          <div class="chips-row" id="categoryChips">
+            <button class="chip active" data-category="todos">Todos</button>
+            <button class="chip" data-category="comida">Comida &amp; Delivery</button>
+            <button class="chip" data-category="mascotas">Mascotas</button>
+            <button class="chip" data-category="salud">Salud &amp; Bienestar</button>
+            <button class="chip" data-category="servicios">Servicios a domicilio</button>
+            <button class="chip" data-category="clases">Clases &amp; educación</button>
+            <button class="chip" data-category="belleza">Belleza</button>
+          </div>
+
+          <div class="hero-extra-filters">
+            <label for="sectorSelect">
+              Sector:
+              <select id="sectorSelect">
+                <option value="todos">Todos</option>
+                <option value="Chicauma">Chicauma</option>
+                <option value="Lampa">Lampa / Lampa centro</option>
+                <option value="Chicureo">Chicureo</option>
+                <option value="Online">Online / mixto</option>
+              </select>
+            </label>
+            <label>
+              <input type="checkbox" id="deliveryOnlyCheckbox" />
+              Solo con delivery 🚚
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="hero-side-inner">
+          <div class="hero-side-title">
+            Hecho en el barrio, para el barrio 🧡
+          </div>
+          <p class="hero-side-text">
+            Chicauma Hoy es una guía colaborativa que reúne emprendimientos,
+            noticias, clasificados, datos útiles y panoramas locales. La idea es simple:
+            que los vecinos encuentren todo lo que necesitan sin salir del sector.
+          </p>
+          <div class="kpi-row" aria-label="Resumen de la guía">
+            <div class="kpi-item">
+              <span class="value" id="kpiEmprendimientos">0</span>
+              <span class="label">emprendimientos</span>
+            </div>
+            <div class="kpi-item">
+              <span class="value" id="kpiCategorias">0</span>
+              <span class="label">categorías</span>
+            </div>
+            <div class="kpi-item">
+              <span class="value" id="kpiEventos">0</span>
+              <span class="label">eventos activos</span>
+            </div>
+          </div>
+          <p class="hero-side-foot">
+            ¿Tienes un negocio, proyecto, noticia o clasificado? Súmate gratis a
+            la guía y, cuando quieras más visibilidad, tendrás planes para
+            destacar tu ficha, aparecer en banners y tener tu propio publirreportaje.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- DIRECTORIO -->
+    <section id="directorio">
+      <div class="section-header">
+        <div>
+          <h2>Directorio de emprendimientos</h2>
+          <p>Negocios y servicios que ya forman parte de Chicauma Hoy.</p>
+        </div>
+        <div class="section-tools">
+          <span id="resultsCount">0 resultados</span>
+          <label>
+            Ordenar:
+            <select id="orderSelect">
+              <option value="relevancia">Relevancia</option>
+              <option value="nombre">Nombre A–Z</option>
+            </select>
+          </label>
+          <button type="button" id="clearFiltersButton">Limpiar filtros</button>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="businessList">
+        <!-- Cards generadas por JS -->
+      </div>
+    </section>
+
+    <!-- NOTICIAS -->
+    <section id="noticias">
+      <div class="section-header">
+        <div>
+          <h2>Noticias del barrio</h2>
+          <p>Actualidad, cambios y avisos importantes de Chicauma, Lampa y alrededores.</p>
+        </div>
+        <span class="badge-small">
+          📰 ¿Tienes un dato o noticia? Pronto podrás enviarlo desde aquí
+        </span>
+      </div>
+
+      <div class="news-grid" id="newsList">
+        <!-- Noticias generadas por JS -->
+      </div>
+    </section>
+
+    <!-- EVENTOS -->
+    <section id="eventos">
+      <div class="section-header">
+        <div>
+          <h2>Eventos &amp; panoramas</h2>
+          <p>Lo que viene en Chicauma y Lampa: ferias, talleres y actividades.</p>
+        </div>
+        <span class="badge-small">
+          📅 Envía tu evento para aparecer aquí
+        </span>
+      </div>
+
+      <div class="events-grid" id="eventList">
+        <!-- Eventos generados por JS -->
+      </div>
+    </section>
+
+    <!-- CLASIFICADOS -->
+    <section id="clasificados">
+      <div class="section-header">
+        <div>
+          <h2>Clasificados gratuitos</h2>
+          <p>Compra, vende, arrienda o promociona servicios puntuales en el barrio.</p>
+        </div>
+        <span class="badge-small">
+          📌 Publica tu clasificado sin costo
+        </span>
+      </div>
+
+      <div class="classifieds-grid" id="classifiedList">
+        <!-- Clasificados generados por JS -->
+      </div>
+
+      <!-- FORMULARIO CLASIFICADOS (NETLIFY READY) -->
+      <div class="info-card">
+        <h3>Publicar clasificado gratuito</h3>
+        <p style="font-size:0.8rem; color:var(--color-muted); margin-bottom:0.5rem;">
+          Completa este formulario para publicar un clasificado.
+          <strong>Máx. 80 caracteres en el título y 400 en la descripción.</strong><br />
+          En esta versión beta, los avisos nuevos pueden quedar pendientes de revisión antes de mostrarse.
+        </p>
+        <form
+          id="classifiedForm"
+          name="classified"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="classified" />
+          <p style="display:none;">
+            <label>Si ves este campo, déjalo vacío:
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="classifiedTipo">Tipo de aviso</label>
+              <select id="classifiedTipo" name="tipo" required>
+                <option value="Se vende">Se vende</option>
+                <option value="Se arrienda">Se arrienda</option>
+                <option value="Servicios">Servicios</option>
+                <option value="Clases">Clases</option>
+                <option value="Otros">Otros</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="classifiedTitulo">Título del aviso (máx. 80 caracteres)</label>
+              <input
+                type="text"
+                id="classifiedTitulo"
+                name="titulo"
+                required
+                maxlength="80"
+                placeholder="Ej: Se vende escritorio, Clases de inglés, etc."
+              />
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:0.6rem;">
+            <label for="classifiedDetalles">
+              Detalles (máx. 400 caracteres)
+            </label>
+            <textarea
+              id="classifiedDetalles"
+              name="detalles"
+              required
+              maxlength="400"
+              placeholder="Describe el producto o servicio, estado, condiciones, sector, etc."
+            ></textarea>
+          </div>
+
+          <div class="form-grid" style="margin-top:0.6rem;">
+            <div class="form-group">
+              <label for="classifiedPrecio">Precio (opcional)</label>
+              <input
+                type="text"
+                id="classifiedPrecio"
+                name="precio"
+                maxlength="40"
+                placeholder="Ej: 25.000, A convenir, etc."
+              />
+            </div>
+            <div class="form-group">
+              <label for="classifiedWhatsapp">WhatsApp de contacto</label>
+              <input
+                type="tel"
+                id="classifiedWhatsapp"
+                name="whatsapp"
+                required
+                maxlength="15"
+                placeholder="Ej: 56912345678"
+              />
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <span>Tu teléfono se mostrará como “WhatsApp +[número]”.</span>
+            <button type="submit" class="btn-primary">
+              Publicar clasificado
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- PANEL ADMIN (FAKE) -->
+    <section id="admin-panel">
+      <div class="section-header">
+        <div>
+          <h2>Panel de administración</h2>
+          <p>Solo visible en este navegador tras ingresar el código de acceso.</p>
+        </div>
+        <span class="admin-badge">
+          🛠️
+          <span>Modo admin activo</span>
+        </span>
+      </div>
+      <div class="info-card">
+        <h3>Clasificados pendientes de revisión</h3>
+        <p class="info-note">
+          Aquí se muestran los avisos que fueron enviados por vecinos y aún no están aprobados.
+          Puedes aprobarlos para que se vean en la sección pública, o eliminarlos si no corresponden.
+        </p>
+        <div id="adminPendingList" class="admin-pending-list">
+          <!-- Pendientes generados por JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO ÚTIL -->
+    <section id="info-util">
+      <div class="section-header">
+        <div>
+          <h2>Info útil del sector</h2>
+          <p>Contactos de emergencia, transporte y canales oficiales.</p>
+        </div>
+      </div>
+
+      <div class="two-col-grid">
+        <div class="info-card">
+          <h3>Emergencias &amp; salud</h3>
+          <ul class="info-list">
+            <li>
+              <span class="label">Bomberos:</span>
+              <span class="value">132</span>
+            </li>
+            <li>
+              <span class="label">Carabineros:</span>
+              <span class="value">133</span>
+            </li>
+            <li>
+              <span class="label">Ambulancia:</span>
+              <span class="value">131</span>
+            </li>
+            <li>
+              <span class="label">Número municipal (referencial):</span>
+              <span class="value">Consulta en los canales oficiales de la Municipalidad de Lampa.</span>
+            </li>
+          </ul>
+          <p class="info-note">
+            Verifica siempre la vigencia de los teléfonos en la web y redes
+            oficiales de tu municipalidad.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Movilidad &amp; comunidad</h3>
+          <ul class="info-list">
+            <li>
+              <span class="label">Rutas principales:</span>
+              <span class="value">Autopista Los Libertadores, Camino Lo Pinto.</span>
+            </li>
+            <li>
+              <span class="label">Transporte:</span>
+              <span class="value">Buses y locomoción hacia Metro Los Libertadores.</span>
+            </li>
+            <li>
+              <span class="label">Municipalidad de Lampa:</span>
+              <span class="value">Busca “Muni Lampa” en redes / sitio oficial para noticias.</span>
+            </li>
+          </ul>
+          <p class="info-note">
+            Próximamente: enlaces a grupos de WhatsApp vecinales, seguridad
+            comunitaria y más datos del sector.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANES -->
+    <section id="planes">
+      <div class="section-header">
+        <div>
+          <h2>Planes para emprendedores</h2>
+          <p>
+            Aparecer en la guía siempre será gratis. Si quieres más visibilidad y
+            ventas, puedes subir a un plan Destacado o Pro.
+          </p>
+        </div>
+        <span class="badge-small">
+          🔥 Lanzamiento: 50% de descuento anual pagando 8 meses
+        </span>
+      </div>
+
+      <div class="two-col-grid" style="margin-bottom:1rem;">
+        <div class="info-card">
+          <span class="plan-badge">Plan Gratis · $0 / mes</span>
+          <p class="plan-highlight">
+            Ideal para estar en el mapa y que los vecinos te encuentren.
+          </p>
+          <ul class="plan-list">
+            <li>
+              <span class="bullet">✅</span>
+              <span>Ficha básica con nombre, descripción, categoría, sector y contacto.</span>
+            </li>
+            <li>
+              <span class="bullet">✅</span>
+              <span>Apareces en búsquedas por palabra clave, categoría y sector.</span>
+            </li>
+            <li>
+              <span class="bullet">✅</span>
+              <span>Participas en la guía de manera gratuita, sin límite de tiempo.</span>
+            </li>
+          </ul>
+          <p class="plan-foot">
+            Perfecto si estás partiendo y solo quieres que la gente sepa que existes.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <span class="plan-badge">Plan Destacado · $4.990 / mes</span>
+          <p class="plan-highlight">
+            Tu ficha se vuelve protagonista en el directorio de Chicauma Hoy.
+          </p>
+          <p class="plan-price">
+            $4.990 <span class="period">/ mes</span>
+          </p>
+          <p class="plan-price" style="font-size:0.9rem;">
+            Lanzamiento anual: <strong>paga solo 8 meses</strong> y úsalo todo el año.
+          </p>
+          <ul class="plan-list">
+            <li>
+              <span class="bullet">⭐</span>
+              <span>Ficha Premium con sello <strong>“Destacado”</strong> y diseño diferenciado.</span>
+            </li>
+            <li>
+              <span class="bullet">⭐</span>
+              <span>Bloque de <strong>“Oferta exclusiva para vecinos”</strong> visible en tu ficha.</span>
+            </li>
+            <li>
+              <span class="bullet">⭐</span>
+              <span>Bloque de <strong>“Beneficio Chicauma Hoy”</strong> (envío gratis, combos, etc.).</span>
+            </li>
+            <li>
+              <span class="bullet">⭐</span>
+              <span>Prioridad en el directorio por sobre los planes gratuitos.</span>
+            </li>
+            <li>
+              <span class="bullet">⭐</span>
+              <span>Mayor probabilidad de aparecer en “Recomendados de la semana” y rutas temáticas.</span>
+            </li>
+          </ul>
+          <p class="plan-foot">
+            Pensado para emprendimientos que ya venden y quieren destacar en el barrio sin gastar de más.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span class="plan-badge">Plan Pro · $9.990 / mes</span>
+        <p class="plan-highlight">
+          Todo lo del Plan Destacado, más presencia fuerte en la cabecera y un publirreportaje al mes.
+        </p>
+        <p class="plan-price">
+          $9.990 <span class="period">/ mes</span>
+        </p>
+        <p class="plan-price" style="font-size:0.9rem;">
+          Lanzamiento anual: <strong>paga solo 8 meses</strong> y apareces todo el año como Pro.
+        </p>
+        <ul class="plan-list">
+          <li>
+            <span class="bullet">💎</span>
+            <span>Incluye todo lo del <strong>Plan Destacado</strong>.</span>
+          </li>
+          <li>
+            <span class="bullet">💎</span>
+            <span><strong>Banner rotativo en la cabecera</strong> del sitio (carrusel Pro de emprendimientos destacados, visible arriba).</span>
+          </li>
+          <li>
+            <span class="bullet">💎</span>
+            <span><strong>Publirreportaje mensual</strong> en la sección Noticias, fijado como “Emprendedor del mes”.</span>
+          </li>
+          <li>
+            <span class="bullet">💎</span>
+            <span>Máxima prioridad en el directorio: Pro &gt; Destacado &gt; Gratis.</span>
+          </li>
+          <li>
+            <span class="bullet">📊</span>
+            <span>(Próximamente) Resumen simple de clics hacia WhatsApp / Instagram.</span>
+          </li>
+        </ul>
+        <p class="plan-foot">
+          Ideal para negocios que quieren “marcar territorio” en Chicauma y Lampa: más visibilidad, más recordación y más visitas a tu ficha.
+        </p>
+      </div>
+    </section>
+
+    <!-- FORMULARIO EMPRENDIMIENTOS (NETLIFY READY) -->
+    <section id="form-emprendimiento">
+      <div class="section-header">
+        <div>
+          <h2>Suma tu emprendimiento a la guía</h2>
+          <p>Completa este formulario para que podamos agregar tu negocio a Chicauma Hoy.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <form
+          id="businessForm"
+          name="business"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="business" />
+          <p style="display:none;">
+            <label>Si ves este campo, déjalo vacío:
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="businessNombre">Nombre del emprendimiento</label>
+              <input
+                type="text"
+                id="businessNombre"
+                name="nombre"
+                required
+                placeholder="Ej: Zero Bakery Chicauma"
+              />
+            </div>
+            <div class="form-group">
+              <label for="businessCategoria">Categoría</label>
+              <select id="businessCategoria" name="categoria" required>
+                <option value="comida">Comida & Delivery</option>
+                <option value="mascotas">Mascotas</option>
+                <option value="salud">Salud & Bienestar</option>
+                <option value="servicios">Servicios a domicilio</option>
+                <option value="clases">Clases & educación</option>
+                <option value="belleza">Belleza</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:0.6rem;">
+            <label for="businessDescripcion">Descripción breve</label>
+            <textarea
+              id="businessDescripcion"
+              name="descripcion"
+              required
+              placeholder="Cuenta en pocas líneas qué ofreces, a quién y qué te hace diferente."
+            ></textarea>
+          </div>
+
+          <div class="form-grid" style="margin-top:0.6rem;">
+            <div class="form-group">
+              <label for="businessWhatsapp">WhatsApp de contacto</label>
+              <input
+                type="tel"
+                id="businessWhatsapp"
+                name="whatsapp"
+                placeholder="Ej: 56912345678"
+              />
+            </div>
+            <div class="form-group">
+              <label for="businessInstagram">Instagram (opcional)</label>
+              <input
+                type="text"
+                id="businessInstagram"
+                name="instagram"
+                placeholder="@tucuenta"
+              />
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-top:0.6rem;">
+            <div class="form-group">
+              <label for="businessWeb">Sitio web (opcional)</label>
+              <input
+                type="url"
+                id="businessWeb"
+                name="web"
+                placeholder="https://tu-sitio.cl"
+              />
+            </div>
+            <div class="form-group">
+              <label for="businessSector">Sector</label>
+              <select id="businessSector" name="sector" required>
+                <option value="Chicauma">Chicauma</option>
+                <option value="Lampa">Lampa / Lampa centro</option>
+                <option value="Chicureo">Chicureo</option>
+                <option value="Online">Online / mixto</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-inline">
+            <label>
+              <input type="checkbox" id="businessDelivery" name="delivery" />
+              Ofrezco delivery en el sector
+            </label>
+          </div>
+
+          <div class="form-grid" style="margin-top:0.6rem;">
+            <div class="form-group">
+              <label for="businessHorario">Horario (ej: Lun a Sáb · 10:00 a 20:00)</label>
+              <input
+                type="text"
+                id="businessHorario"
+                name="horario"
+                placeholder="Lun a Sáb · 10:00 a 20:00"
+              />
+            </div>
+            <div class="form-group">
+              <label for="businessPlan">Plan que te interesa</label>
+              <select id="businessPlan" name="plan">
+                <option value="gratis">Gratis</option>
+                <option value="destacado">Plan Destacado</option>
+                <option value="pro">Plan Pro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <span>
+              En esta versión beta, revisaremos tu ficha y te contactaremos por WhatsApp si es necesario.
+            </span>
+            <button type="submit" class="btn-primary">
+              Enviar datos de mi emprendimiento
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- CTA FLOTANTE -->
+  <div class="floating-cta">
+    <button
+      onclick="document.getElementById('form-emprendimiento').scrollIntoView({behavior:'smooth'});"
+    >
+      <span class="icon">➕</span>
+      <span>Agregar mi emprendimiento</span>
+    </button>
+  </div>
+
+  <footer>
+    <div>
+      Chicauma Hoy · Guía local colaborativa. Versión beta. &nbsp;|&nbsp;
+      <a href="#inicio">Volver arriba</a>
+    </div>
+    <button id="adminAccessButton" type="button">
+      🧩 Acceso administración
+    </button>
+  </footer>
+
+  <script>
+    // =============================
+    // CONFIG
+    // =============================
+    const MODERAR_CLASIFICADOS = true;
+    const ADMIN_CODE = "chicauma2025";
+    let isAdmin = false;
+
+    // =============================
+    // DATA: EMPRENDIMIENTOS
+    // =============================
+    const emprendimientos = [
+      {
+        id: 1,
+        nombre: "Zero Bakery Chicauma",
+        categoria: "comida",
+        descripcion:
+          "Pan, brownies y queques sin azúcar, low carb, con delivery a Chicauma y Chicureo.",
+        whatsapp: "56999999999",
+        instagram: "zerobakery.cl",
+        web: "https://zerobakery.cl",
+        sector: "Chicauma / Chicureo",
+        etiquetas: ["sin azúcar", "low carb", "delivery"],
+        horario: "Lun a Sáb · 10:00 a 20:00",
+        delivery: true,
+        premium: true,
+        recomendado: true,
+        nuevo: false,
+        ofertaVecinos:
+          "10% de descuento en la primera compra para vecinos de Chicauma si dices 'CHICAUMAHOY'.",
+        beneficioVecinos:
+          "Despacho en 24h en Chicauma y Chicureo.",
+        plan: "pro"
+      },
+      {
+        id: 2,
+        nombre: "Fiambrería Chicauma",
+        categoria: "comida",
+        descripcion:
+          "Jamón, quesos y embutidos al corte, envasados al vacío, directo a tu casa.",
+        whatsapp: "56988888888",
+        instagram: "",
+        web: "",
+        sector: "Chicauma",
+        etiquetas: ["charcutería", "quesos", "delivery"],
+        horario: "Lun a Sáb · 11:00 a 21:00",
+        delivery: true,
+        premium: true,
+        recomendado: true,
+        nuevo: true,
+        ofertaVecinos: "Pack jamón + queso con precio especial para vecinos.",
+        beneficioVecinos: "Entrega en Chicauma sin recargo por lanzamiento.",
+        plan: "destacado"
+      },
+      {
+        id: 3,
+        nombre: "Barkú Snacks Naturales",
+        categoria: "mascotas",
+        descripcion:
+          "Snacks naturales para perros, sin químicos, ideales como premios diarios.",
+        whatsapp: "56977777777",
+        instagram: "barku.snacks",
+        web: "",
+        sector: "Chicauma / Lampa",
+        etiquetas: ["perros", "snacks saludables"],
+        horario: "Lun a Vie · 10:00 a 19:00",
+        delivery: true,
+        premium: true,
+        recomendado: true,
+        nuevo: false,
+        ofertaVecinos: "3x2 en snacks naturales todos los sábados.",
+        beneficioVecinos:
+          "Entrega sin costo en Chicauma por compras sobre $20.000.",
+        plan: "pro"
+      },
+      {
+        id: 4,
+        nombre: "Vet Lampa",
+        categoria: "mascotas",
+        descripcion:
+          "Consulta veterinaria, vacunas y atención domiciliaria para mascotas.",
+        whatsapp: "56966666666",
+        instagram: "",
+        web: "",
+        sector: "Lampa centro",
+        etiquetas: ["veterinaria", "visita a domicilio"],
+        horario: "Lun a Sáb · 09:00 a 19:00",
+        delivery: false,
+        premium: false,
+        recomendado: false,
+        nuevo: false,
+        ofertaVecinos: "",
+        beneficioVecinos: "",
+        plan: "gratis"
+      },
+      {
+        id: 5,
+        nombre: "Keto Fit Nutrición",
+        categoria: "salud",
+        descripcion:
+          "Nutricionista especialista en alimentación baja en carbohidratos y keto.",
+        whatsapp: "56961234567",
+        instagram: "ketofit.nutricion",
+        web: "",
+        sector: "Online / Chicauma",
+        etiquetas: ["nutricionista", "keto", "online"],
+        horario: "Agenda previa",
+        delivery: false,
+        premium: false,
+        recomendado: false,
+        nuevo: true,
+        ofertaVecinos: "",
+        beneficioVecinos: "",
+        plan: "gratis"
+      },
+      {
+        id: 6,
+        nombre: "Profe Matemáticas Chicauma",
+        categoria: "clases",
+        descripcion:
+          "Clases particulares de matemáticas para básica y media, online y presencial.",
+        whatsapp: "56963456789",
+        instagram: "",
+        web: "",
+        sector: "Chicauma",
+        etiquetas: ["reforzamiento escolar", "matemáticas"],
+        horario: "Lun a Vie · 17:00 a 21:00",
+        delivery: false,
+        premium: false,
+        recomendado: false,
+        nuevo: false,
+        ofertaVecinos: "",
+        beneficioVecinos: "",
+        plan: "gratis"
+      },
+      {
+        id: 7,
+        nombre: "Belleza en Casa Chicauma",
+        categoria: "belleza",
+        descripcion:
+          "Manicure, pedicure y pestañas a domicilio dentro de Chicauma.",
+        whatsapp: "56964561234",
+        instagram: "bellezaencasachicauma",
+        web: "",
+        sector: "Chicauma",
+        etiquetas: ["manicure", "a domicilio"],
+        horario: "Lun a Sáb · 10:00 a 19:00",
+        delivery: true,
+        premium: true,
+        recomendado: true,
+        nuevo: false,
+        ofertaVecinos: "Descuento en primera sesión para vecinos de Chicauma.",
+        beneficioVecinos: "",
+        plan: "destacado"
+      },
+      {
+        id: 8,
+        nombre: "Gas Express Lampa",
+        categoria: "servicios",
+        descripcion:
+          "Reparto de gas a domicilio con cobertura en Chicauma y Lampa.",
+        whatsapp: "56962345678",
+        instagram: "",
+        web: "",
+        sector: "Lampa / Chicauma",
+        etiquetas: ["gas", "reparto"],
+        horario: "Todos los días · 08:00 a 22:00",
+        delivery: true,
+        premium: false,
+        recomendado: false,
+        nuevo: false,
+        ofertaVecinos: "",
+        beneficioVecinos: "",
+        plan: "gratis"
+      }
+    ];
+
+    // =============================
+    // DATA: EVENTOS
+    // =============================
+    const eventos = [
+      {
+        id: 1,
+        titulo: "Feria de Emprendedores Chicauma",
+        tipo: "feria",
+        fecha: "Sábado 20 de diciembre · 11:00 a 18:00",
+        lugar: "Plaza central de Chicauma",
+        descripcion:
+          "Emprendimientos locales de comida, artesanías, productos saludables y más.",
+        enlace: "#"
+      },
+      {
+        id: 2,
+        titulo: "Taller de alimentación keto para principiantes",
+        tipo: "taller",
+        fecha: "Miércoles 17 de diciembre · 19:00",
+        lugar: "Formato online (link al inscribirse)",
+        descripcion:
+          "Introducción práctica a la alimentación baja en carbohidratos para toda la familia.",
+        enlace: "#"
+      },
+      {
+        id: 3,
+        titulo: "Jornada de adopción de mascotas",
+        tipo: "mascotas",
+        fecha: "Domingo 21 de diciembre · 10:00 a 14:00",
+        lugar: "Lampa centro (por confirmar)",
+        descripcion:
+          "Perros y gatos rescatados buscando familia. Incluye orientación veterinaria.",
+        enlace: "#"
+      }
+    ];
+
+    // =============================
+    // DATA: NOTICIAS
+    // =============================
+    const noticias = [
+      {
+        id: 1,
+        titulo: "Nuevo horario de locomoción hacia Metro Los Libertadores",
+        tipo: "transporte",
+        fecha: "Diciembre 2025",
+        resumen:
+          "Se actualizan los horarios de buses desde Lampa y Chicauma hacia Metro Los Libertadores.",
+        contenido:
+          "Se actualizan los horarios de buses desde Lampa y Chicauma hacia Metro Los Libertadores. Los primeros servicios saldrán más temprano para facilitar la conexión con el horario punta de la mañana, y se agregan salidas en horario nocturno para quienes regresan tarde. Te recomendamos revisar el detalle en los afiches del paradero principal y canales oficiales de la Municipalidad de Lampa.",
+        enlace: "#",
+        imagen: "https://images.unsplash.com/photo-1518552718880-9bcc7a0b4603?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 2,
+        titulo: "Corte programado de agua en sector Chicauma",
+        tipo: "servicios básicos",
+        fecha: "Jueves 18 de diciembre · 09:00 a 15:00",
+        resumen:
+          "La empresa sanitaria anunció un corte de agua programado para mantención en el sector.",
+        contenido:
+          "La empresa sanitaria anunció un corte de agua programado para mantención en el sector de Chicauma. El corte está previsto para el jueves 18 de diciembre, entre las 09:00 y las 15:00 horas, y podría extenderse ligeramente según avancen los trabajos. Se recomienda almacenar agua con anticipación para consumo, higiene y cocina. Ante dudas, revisa los comunicados oficiales de la sanitaria o la municipalidad.",
+        enlace: "#",
+        imagen: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 3,
+        titulo: "Operativo de vacunación canina y felina",
+        tipo: "mascotas",
+        fecha: "Sábado 27 de diciembre · Desde las 10:00",
+        resumen:
+          "Jornada de vacunación y desparasitación a bajo costo para perros y gatos del sector.",
+        contenido:
+          "Este sábado 27 de diciembre se realizará un operativo de vacunación y desparasitación a bajo costo para perros y gatos del sector Chicauma y Lampa. La actividad comenzará a las 10:00 horas y se atenderá por orden de llegada. Se recomienda llevar a las mascotas con correa o en caja de transporte, y su cartón de vacunas si lo tienen. Es una buena oportunidad para mantener al día la salud de tus animales.",
+        enlace: "#",
+        imagen: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 4,
+        titulo: "Emprendedor del mes: Zero Bakery Chicauma",
+        tipo: "publirreportaje",
+        fecha: "Mes en curso",
+        resumen:
+          "Conoce la historia de Zero Bakery, el emprendimiento de pan y pastelería sin azúcar que está cambiando la once de muchos vecinos.",
+        contenido:
+          "Zero Bakery Chicauma nació como una idea familiar: disfrutar pan y pastelería rica, pero sin azúcar tradicional ni harinas refinadas. Hoy ofrecen pan, brownies y queques low carb con reparto en Chicauma y Chicureo. Su propuesta se centra en ayudar a quienes quieren bajar el azúcar, controlar su peso o cuidar su salud sin dejar la once. En este publirreportaje, que forma parte del Plan Pro de Chicauma Hoy, se puede profundizar en la historia del emprendimiento, los productos estrella, los desafíos del camino y testimonios de vecinos que ya cambiaron su once. Aquí podrías extenderte bastante más (500–800 palabras) contando la historia, los productos favoritos, cómo comprar y los beneficios para personas que quieren bajar el azúcar o cuidar su peso.",
+        enlace: "#",
+        imagen: "https://images.unsplash.com/photo-1587241321921-91a834d6d191?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+
+    // =============================
+    // DATA: CLASIFICADOS
+    // =============================
+    const clasificados = [
+      {
+        id: 1,
+        tipo: "Se vende",
+        titulo: "Se vende bicicleta MTB talla M",
+        fecha: "Publicado: 10 de diciembre",
+        descripcion:
+          "Bicicleta de montaña en buen estado, poco uso. Ideal para paseos por el sector.",
+        contacto: "Vecino en Chicauma · WhatsApp +56912345678",
+        precio: "$120.000",
+        aprobado: true
+      },
+      {
+        id: 2,
+        tipo: "Se arrienda",
+        titulo: "Arriendo pieza amoblada en Chicauma",
+        fecha: "Publicado: 9 de diciembre",
+        descripcion:
+          "Pieza con baño compartido, incluye gastos básicos. Ideal estudiante o trabajador.",
+        contacto: "WhatsApp +56998765432",
+        precio: "$230.000 / mes",
+        aprobado: true
+      },
+      {
+        id: 3,
+        tipo: "Servicios",
+        titulo: "Clases particulares de inglés para niños",
+        fecha: "Publicado: 8 de diciembre",
+        descripcion:
+          "Profesora del sector ofrece clases lúdicas de inglés para niños de básica.",
+        contacto: "Inbox vía Chicauma Hoy o WhatsApp +56955556666",
+        precio: "A convenir",
+        aprobado: true
+      }
+    ];
+
+    // =============================
+    // DATA: TICKER (INFO GENERAL)
+    // =============================
+    const tickerItems = [
+      {
+        label: "Evento",
+        text: "Feria de Emprendedores en la plaza de Chicauma este sábado.",
+        link: "#eventos"
+      },
+      {
+        label: "Aviso",
+        text: "Corte programado de agua el jueves 18 de diciembre en sector Chicauma.",
+        link: "#noticias"
+      },
+      {
+        label: "Mascotas",
+        text: "Jornada de adopción de perros y gatos en Lampa centro.",
+        link: "#eventos"
+      },
+      {
+        label: "Transporte",
+        text: "Revisa los nuevos horarios de buses a Metro Los Libertadores.",
+        link: "#noticias"
+      }
+    ];
+
+    // =============================
+    // DATA: BANNERS PLAN PRO
+    // =============================
+    const proBanners = [
+      {
+        id: 1,
+        negocioId: 1,
+        titulo: "Zero Bakery Chicauma",
+        texto: "Pan, brownies y queques sin azúcar para tu once en Chicauma.",
+        cta: "Ver emprendimiento",
+        link: "#directorio"
+      },
+      {
+        id: 2,
+        negocioId: 3,
+        titulo: "Barkú Snacks Naturales",
+        texto: "Snacks naturales para perros, sin químicos, hechos en el barrio.",
+        cta: "Ver emprendimiento",
+        link: "#directorio"
+      }
+    ];
+
+    // =============================
+    // ELEMENTOS DOM
+    // =============================
+    const businessListEl = document.getElementById("businessList");
+    const searchInputEl = document.getElementById("searchInput");
+    const searchButtonEl = document.getElementById("searchButton");
+    const categoryChipsEl = document.getElementById("categoryChips");
+    const resultsCountEl = document.getElementById("resultsCount");
+    const clearFiltersButtonEl = document.getElementById("clearFiltersButton");
+    const orderSelectEl = document.getElementById("orderSelect");
+    const sectorSelectEl = document.getElementById("sectorSelect");
+    const deliveryOnlyCheckboxEl = document.getElementById("deliveryOnlyCheckbox");
+
+    const eventListEl = document.getElementById("eventList");
+    const newsListEl = document.getElementById("newsList");
+    const tickerInnerEl = document.getElementById("tickerInner");
+    const classifiedListEl = document.getElementById("classifiedList");
+    const proBannerTrackEl = document.getElementById("proBannerTrack");
+
+    const kpiEmprendimientosEl = document.getElementById("kpiEmprendimientos");
+    const kpiCategoriasEl = document.getElementById("kpiCategorias");
+    const kpiEventosEl = document.getElementById("kpiEventos");
+
+    const classifiedFormEl = document.getElementById("classifiedForm");
+    const businessFormEl = document.getElementById("businessForm");
+
+    const modalBackdropEl = document.getElementById("businessModalBackdrop");
+    const modalCloseButtonEl = document.getElementById("modalCloseButton");
+    const modalAvatarEl = document.getElementById("modalAvatar");
+    const modalTitleEl = document.getElementById("modalTitle");
+    const modalSubtitleEl = document.getElementById("modalSubtitle");
+    const modalDescriptionEl = document.getElementById("modalDescription");
+    const modalScheduleEl = document.getElementById("modalSchedule");
+    const modalTagsEl = document.getElementById("modalTags");
+    const modalContactEl = document.getElementById("modalContact");
+    const modalActionsEl = document.getElementById("modalActions");
+
+    const newsModalBackdropEl = document.getElementById("newsModalBackdrop");
+    const newsModalCloseButtonEl = document.getElementById("newsModalCloseButton");
+    const newsModalAvatarEl = document.getElementById("newsModalAvatar");
+    const newsModalTitleEl = document.getElementById("newsModalTitle");
+    const newsModalSubtitleEl = document.getElementById("newsModalSubtitle");
+    const newsModalContentEl = document.getElementById("newsModalContent");
+    const newsModalImageWrapperEl = document.getElementById("newsModalImageWrapper");
+
+    const adminPanelEl = document.getElementById("admin-panel");
+    const adminPendingListEl = document.getElementById("adminPendingList");
+    const adminAccessButtonEl = document.getElementById("adminAccessButton");
+
+    // =============================
+    // ESTADO DE FILTROS
+    // =============================
+    let currentCategory = "todos";
+    let currentOrder = "relevancia";
+
+    function normalize(text) {
+      return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function createWhatsAppLink(number, name) {
+      if (!number) return "#";
+      const clean = number.replace(/[^0-9]/g, "");
+      const text = encodeURIComponent(
+        `Hola, vi tu ficha en Chicauma Hoy y me gustaría saber más sobre ${name}.`
+      );
+      return `https://wa.me/${clean}?text=${text}`;
+    }
+
+    function createInstagramLink(handle) {
+      if (!handle) return null;
+      const h = handle.replace("@", "").trim();
+      return `https://instagram.com/${h}`;
+    }
+
+    function formatCategoria(cat) {
+      switch (cat) {
+        case "comida":
+          return "Comida & Delivery";
+        case "mascotas":
+          return "Mascotas";
+        case "salud":
+          return "Salud & Bienestar";
+        case "servicios":
+          return "Servicios a domicilio";
+        case "clases":
+          return "Clases & educación";
+        case "belleza":
+          return "Belleza";
+        default:
+          return "Otro";
+      }
+    }
+
+    function formatTipoEvento(tipo) {
+      switch (tipo) {
+        case "feria":
+          return "Feria de emprendedores";
+        case "taller":
+          return "Taller / charla";
+        case "mascotas":
+          return "Mascotas";
+        default:
+          return "Evento";
+      }
+    }
+
+    function formatTipoNoticia(tipo) {
+      if (!tipo) return "Noticia";
+      const t = tipo.toLowerCase();
+      if (t === "transporte") return "Transporte";
+      if (t === "servicios básicos") return "Servicios básicos";
+      if (t === "mascotas") return "Mascotas";
+      if (t === "publirreportaje") return "Publirreportaje";
+      return "Noticia";
+    }
+
+    // =============================
+    // NETLIFY FORM HELPER
+    // =============================
+    function sendToNetlify(formElement) {
+      const formData = new FormData(formElement);
+      return fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      }).catch((err) => {
+        console.error("Error enviando a Netlify:", err);
+      });
+    }
+
+    // =============================
+    // MODALES
+    // =============================
+    function openBusinessModal(business) {
+      if (!business) return;
+      const initial = (business.nombre || "?").charAt(0).toUpperCase();
+
+      modalAvatarEl.textContent = initial;
+      modalTitleEl.textContent = business.nombre || "";
+      modalSubtitleEl.textContent = `${formatCategoria(
+        business.categoria
+      )} · ${business.sector || ""}`;
+      modalDescriptionEl.textContent = business.descripcion || "";
+      modalScheduleEl.textContent = business.horario || "Horario no informado";
+
+      const baseTags =
+        (business.etiquetas && business.etiquetas.length)
+          ? business.etiquetas.join(" · ")
+          : "Sin etiquetas específicas";
+
+      let extras = [];
+      if (business.ofertaVecinos) {
+        extras.push(`Oferta vecinos: ${business.ofertaVecinos}`);
+      }
+      if (business.beneficioVecinos) {
+        extras.push(`Beneficio: ${business.beneficioVecinos}`);
+      }
+
+      modalTagsEl.textContent = extras.length
+        ? `${baseTags} · ${extras.join(" · ")}`
+        : baseTags;
+
+      const contactLines = [];
+      if (business.whatsapp) {
+        contactLines.push(`WhatsApp: +${business.whatsapp}`);
+      }
+      if (business.instagram) {
+        contactLines.push(`Instagram: @${business.instagram}`);
+      }
+      if (business.web) {
+        contactLines.push(`Sitio web: ${business.web}`);
+      }
+      if (!contactLines.length) {
+        contactLines.push("Sin datos de contacto adicionales.");
+      }
+      modalContactEl.textContent = contactLines.join(" · ");
+
+      modalActionsEl.innerHTML = "";
+      if (business.whatsapp) {
+        const waBtn = document.createElement("button");
+        waBtn.className = "btn-pill primary";
+        waBtn.textContent = "💬 WhatsApp";
+        waBtn.onclick = () =>
+          window.open(
+            createWhatsAppLink(business.whatsapp, business.nombre),
+            "_blank"
+          );
+        modalActionsEl.appendChild(waBtn);
+      }
+      if (business.instagram) {
+        const igBtn = document.createElement("button");
+        igBtn.className = "btn-pill";
+        igBtn.textContent = "📷 Instagram";
+        igBtn.onclick = () =>
+          window.open(createInstagramLink(business.instagram), "_blank");
+        modalActionsEl.appendChild(igBtn);
+      }
+      if (business.web) {
+        const webBtn = document.createElement("button");
+        webBtn.className = "btn-pill";
+        webBtn.textContent = "🌐 Web";
+        webBtn.onclick = () => window.open(business.web, "_blank");
+        modalActionsEl.appendChild(webBtn);
+      }
+
+      modalBackdropEl.classList.add("active");
+      modalBackdropEl.setAttribute("aria-hidden", "false");
+    }
+
+    function closeBusinessModal() {
+      modalBackdropEl.classList.remove("active");
+      modalBackdropEl.setAttribute("aria-hidden", "true");
+    }
+
+    function openNewsModal(news) {
+      if (!news) return;
+      newsModalAvatarEl.textContent = "📰";
+      newsModalTitleEl.textContent = news.titulo || "";
+      newsModalSubtitleEl.textContent = `${formatTipoNoticia(
+        news.tipo
+      )} · ${news.fecha || ""}`;
+      newsModalContentEl.textContent =
+        news.contenido || news.resumen || "Sin contenido disponible.";
+
+      if (news.imagen) {
+        newsModalImageWrapperEl.style.display = "block";
+        newsModalImageWrapperEl.innerHTML = `<img src="${news.imagen}" alt="${news.titulo}">`;
+      } else {
+        newsModalImageWrapperEl.style.display = "none";
+        newsModalImageWrapperEl.innerHTML = "";
+      }
+
+      newsModalBackdropEl.classList.add("active");
+      newsModalBackdropEl.setAttribute("aria-hidden", "false");
+    }
+
+    function closeNewsModal() {
+      newsModalBackdropEl.classList.remove("active");
+      newsModalBackdropEl.setAttribute("aria-hidden", "true");
+    }
+
+    // =============================
+    // DIRECTORIO: FILTRO + RENDER
+    // =============================
+    function getFilteredBusinesses() {
+      const query = normalize(searchInputEl.value.trim());
+      const sectorFilter = sectorSelectEl.value;
+      const deliveryOnly = deliveryOnlyCheckboxEl.checked;
+
+      return emprendimientos.filter((e) => {
+        const matchCategory =
+          currentCategory === "todos" || e.categoria === currentCategory;
+
+        const normalizedText =
+          normalize(e.nombre || "") +
+          " " +
+          normalize(e.descripcion || "") +
+          " " +
+          normalize(e.sector || "") +
+          " " +
+          normalize((e.etiquetas || []).join(" "));
+
+        const matchSearch = !query || normalizedText.includes(query);
+
+        let matchSector = true;
+        if (sectorFilter === "Chicauma") {
+          matchSector = (e.sector || "").toLowerCase().includes("chicauma");
+        } else if (sectorFilter === "Lampa") {
+          matchSector = (e.sector || "").toLowerCase().includes("lampa");
+        } else if (sectorFilter === "Chicureo") {
+          matchSector = (e.sector || "").toLowerCase().includes("chicureo");
+        } else if (sectorFilter === "Online") {
+          matchSector = (e.sector || "").toLowerCase().includes("online");
+        }
+
+        const matchDelivery = !deliveryOnly || e.delivery;
+
+        return matchCategory && matchSearch && matchSector && matchDelivery;
+      });
+    }
+
+    function sortBusinesses(list) {
+      const arr = [...list];
+      if (currentOrder === "nombre") {
+        arr.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
+      } else {
+        const weight = (e) => {
+          if (e.plan === "pro") return 0;
+          if (e.plan === "destacado") return 1;
+          if (e.premium) return 2;
+          if (e.recomendado) return 3;
+          return 4;
+        };
+        arr.sort((a, b) => {
+          const wa = weight(a);
+          const wb = weight(b);
+          if (wa !== wb) return wa - wb;
+          return a.nombre.localeCompare(b.nombre, "es");
+        });
+      }
+      return arr;
+    }
+
+    function renderBusinesses() {
+      const filtered = sortBusinesses(getFilteredBusinesses());
+      const total = filtered.length;
+
+      resultsCountEl.textContent =
+        total === 1 ? "1 resultado" : `${total} resultados`;
+
+      businessListEl.innerHTML = "";
+
+      if (!total) {
+        businessListEl.innerHTML = `
+          <article class="card">
+            <p class="card-desc">
+              No encontramos resultados con esos filtros. Prueba con otra
+              palabra o categoría. Si tu negocio aún no está, súmalo a la guía
+              usando el botón “Agregar mi emprendimiento”.
+            </p>
+          </article>
+        `;
+        return;
+      }
+
+      filtered.forEach((e) => {
+        const card = document.createElement("article");
+        card.className = e.premium ? "card card-premium" : "card";
+
+        const initial = (e.nombre || "?").charAt(0).toUpperCase();
+        const waLink = createWhatsAppLink(e.whatsapp, e.nombre);
+        const igLink = createInstagramLink(e.instagram);
+
+        const tagsHtml = (e.etiquetas || [])
+          .map((tag) => `<span class="card-tag">${tag}</span>`)
+          .join("");
+
+        const deliveryHtml = e.delivery
+          ? `<span class="card-tag">🚚 Delivery</span>`
+          : "";
+
+        const pillLabels = [];
+        if (e.plan === "pro") pillLabels.push("Plan Pro");
+        else if (e.plan === "destacado") pillLabels.push("Destacado");
+        if (e.recomendado) pillLabels.push("Recomendado");
+        if (e.nuevo) pillLabels.push("Nuevo");
+        const pillsHtml = pillLabels
+          .map((p) => `<span class="card-pill">${p}</span>`)
+          .join("");
+
+        const premiumBadge = e.premium
+          ? `
+        <div class="card-badge-premium">
+          <span class="icon">⭐</span>
+          <span>${e.plan === "pro" ? "Pro" : "Destacado"}</span>
+        </div>
+      `
+          : "";
+
+        const instagramBtn = igLink
+          ? `<button class="btn-pill" type="button" data-action="instagram">📷 Instagram</button>`
+          : "";
+
+        const webBtn = e.web
+          ? `<button class="btn-pill" type="button" data-action="web">🌐 Web</button>`
+          : "";
+
+        card.innerHTML = `
+          ${premiumBadge}
+          <div class="card-header">
+            <div class="card-avatar">${initial}</div>
+            <div>
+              <div class="card-title-row">
+                <div class="card-title">${e.nombre}</div>
+                ${pillsHtml}
+              </div>
+              <div class="card-subtitle">
+                ${formatCategoria(e.categoria)} · ${e.sector || ""}
+              </div>
+            </div>
+          </div>
+          <p class="card-desc">${e.descripcion}</p>
+
+          ${
+            e.premium && e.ofertaVecinos
+              ? `<p class="card-desc" style="font-size:0.78rem;color:#b2531e;margin-top:0.1rem;">
+                   🎁 <strong>Oferta vecinos:</strong> ${e.ofertaVecinos}
+                 </p>`
+              : ""
+          }
+
+          ${
+            e.premium && e.beneficioVecinos
+              ? `<p class="card-desc" style="font-size:0.76rem;color:var(--color-muted);margin-top:0.05rem;">
+                   🏡 <strong>Beneficio Chicauma Hoy:</strong> ${e.beneficioVecinos}
+                 </p>`
+              : ""
+          }
+
+          <div class="card-tags">
+            ${tagsHtml}
+            ${deliveryHtml}
+          </div>
+          <div class="card-footer">
+            <div class="card-footer-left">
+              <span>${e.horario || ""}</span>
+              <button class="btn-pill" type="button" data-action="ver-detalles">
+                👀 Ver ficha completa
+              </button>
+            </div>
+            <div class="card-footer-right">
+              ${
+                e.whatsapp
+                  ? `<button class="btn-pill primary" type="button" data-action="whatsapp">
+                       💬 WhatsApp
+                     </button>`
+                  : ""
+              }
+              ${instagramBtn}
+              ${webBtn}
+            </div>
+          </div>
+        `;
+
+        card.addEventListener("click", (ev) => {
+          const actionBtn = ev.target.closest("button[data-action]");
+          if (!actionBtn) return;
+          const action = actionBtn.getAttribute("data-action");
+
+          if (action === "whatsapp" && e.whatsapp) {
+            window.open(waLink, "_blank");
+          } else if (action === "instagram" && igLink) {
+            window.open(igLink, "_blank");
+          } else if (action === "web" && e.web) {
+            window.open(e.web, "_blank");
+          } else if (action === "ver-detalles") {
+            openBusinessModal(e);
+          }
+        });
+
+        businessListEl.appendChild(card);
+      });
+    }
+
+    // =============================
+    // NOTICIAS: RENDER
+    // =============================
+    function renderNoticias() {
+      newsListEl.innerHTML = "";
+
+      if (!noticias.length) {
+        newsListEl.innerHTML = `
+          <article class="news-card">
+            <p>No hay noticias cargadas por ahora. Pronto verás acá avisos y novedades del sector.</p>
+          </article>
+        `;
+        return;
+      }
+
+      noticias.forEach((n) => {
+        const card = document.createElement("article");
+        card.className = "news-card";
+        card.innerHTML = `
+          <span class="news-tag">📰 ${formatTipoNoticia(n.tipo)}</span>
+          <div class="news-title">${n.titulo}</div>
+          <div class="news-meta">${n.fecha || ""}</div>
+          ${
+            n.imagen
+              ? `<div class="news-image"><img src="${n.imagen}" alt="${n.titulo}"></div>`
+              : ""
+          }
+          <p>${n.resumen || ""}</p>
+          <p class="news-footer">
+            ➜ <button type="button" data-news-id="${n.id}">Leer noticia completa</button>
+          </p>
+        `;
+        const btn = card.querySelector("button[data-news-id]");
+        btn.addEventListener("click", () => openNewsModal(n));
+        newsListEl.appendChild(card);
+      });
+    }
+
+    // =============================
+    // EVENTOS: RENDER
+    // =============================
+    function renderEventos() {
+      eventListEl.innerHTML = "";
+
+      if (!eventos.length) {
+        eventListEl.innerHTML = `
+          <article class="event-card">
+            <p>No hay eventos cargados por ahora. ¿Tienes uno? Envíalo para que lo publiquemos aquí.</p>
+          </article>
+        `;
+        return;
+      }
+
+      eventos.forEach((ev) => {
+        const card = document.createElement("article");
+        card.className = "event-card";
+        card.innerHTML = `
+          <span class="event-tag">📌 ${formatTipoEvento(ev.tipo)}</span>
+          <div class="event-title">${ev.titulo}</div>
+          <div class="event-meta">📅 ${ev.fecha}</div>
+          <div class="event-meta">📍 ${ev.lugar}</div>
+          <p>${ev.descripcion}</p>
+          ${
+            ev.enlace && ev.enlace !== "#"
+              ? `<p class="event-cta">➜ <a href="${ev.enlace}" target="_blank">Ver más / Inscribirse</a></p>`
+              : ""
+          }
+        `;
+        eventListEl.appendChild(card);
+      });
+    }
+
+    // =============================
+    // CLASIFICADOS: RENDER PÚBLICO
+    // =============================
+    function renderClasificados() {
+      classifiedListEl.innerHTML = "";
+
+      const visibles = MODERAR_CLASIFICADOS
+        ? clasificados.filter((c) => c.aprobado)
+        : clasificados;
+
+      if (!visibles.length) {
+        classifiedListEl.innerHTML = `
+          <article class="classified-card">
+            <p>No hay clasificados publicados aún. Publica el tuyo usando el formulario de abajo.</p>
+          </article>
+        `;
+        return;
+      }
+
+      visibles.forEach((c) => {
+        const card = document.createElement("article");
+        card.className = "classified-card";
+        card.innerHTML = `
+          <span class="classified-tag">📌 ${c.tipo}</span>
+          <div class="classified-title">${c.titulo}</div>
+          <div class="classified-meta">${c.fecha || ""}</div>
+          ${
+            c.precio
+              ? `<div class="classified-meta">💰 Precio: ${c.precio}</div>`
+              : ""
+          }
+          <p>${c.descripcion || ""}</p>
+          <p class="classified-footer"><strong>Contacto:</strong> ${c.contacto || ""}</p>
+        `;
+        classifiedListEl.appendChild(card);
+      });
+    }
+
+    // =============================
+    // TICKER: RENDER
+    // =============================
+    function renderTicker() {
+      if (!tickerInnerEl) return;
+      if (!tickerItems.length) {
+        tickerInnerEl.innerHTML = "";
+        return;
+      }
+
+      const itemsHtml = tickerItems
+        .map(
+          (item) => `
+        <a class="ticker-item" href="${item.link || "#"}">
+          <span class="dot">●</span>
+          <span class="label">${item.label || "Info"}</span>
+          <span class="text">${item.text || ""}</span>
+        </a>
+      `
+        )
+        .join("");
+
+      tickerInnerEl.innerHTML = itemsHtml + itemsHtml;
+    }
+
+    // =============================
+    // PRO BANNERS: RENDER
+    // =============================
+    function renderProBanners() {
+      if (!proBannerTrackEl) return;
+      if (!proBanners.length) {
+        proBannerTrackEl.innerHTML = "";
+        return;
+      }
+
+      const itemsHtml = proBanners
+        .map(
+          (b) => `
+        <a class="pro-banner-item" href="${b.link || "#"}">
+          <div>
+            <div class="pro-banner-item-title">${b.titulo}</div>
+            <div class="pro-banner-item-text">${b.texto}</div>
+          </div>
+          <div class="pro-banner-item-cta">${b.cta || "Ver más"}</div>
+        </a>
+      `
+        )
+        .join("");
+
+      proBannerTrackEl.innerHTML = itemsHtml + itemsHtml;
+    }
+
+    // =============================
+    // KPIs CON ANIMACIÓN
+    // =============================
+    function animateNumber(el, to, duration = 900) {
+      const start = 0;
+      const startTime = performance.now();
+
+      function frame(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(start + (to - start) * progress);
+        el.textContent = value.toString();
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        }
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    function updateKpis() {
+      const totalEmprendimientos = emprendimientos.length;
+      const categoriasUnicas = new Set(emprendimientos.map((e) => e.categoria));
+      const totalCategorias = categoriasUnicas.size;
+      const totalEventos = eventos.length;
+
+      animateNumber(kpiEmprendimientosEl, totalEmprendimientos);
+      animateNumber(kpiCategoriasEl, totalCategorias);
+      animateNumber(kpiEventosEl, totalEventos);
+    }
+
+    // =============================
+    // PANEL ADMIN: RENDER PENDIENTES
+    // =============================
+    function renderAdminPending() {
+      if (!isAdmin || !adminPendingListEl) return;
+
+      adminPendingListEl.innerHTML = "";
+
+      const pendientes = clasificados.filter((c) => !c.aprobado);
+
+      if (!pendientes.length) {
+        adminPendingListEl.innerHTML = `
+          <div class="admin-card">
+            <p>No hay clasificados pendientes de revisión. Cuando lleguen nuevos avisos, aparecerán aquí.</p>
+          </div>
+        `;
+        return;
+      }
+
+      pendientes.forEach((c) => {
+        const item = document.createElement("div");
+        item.className = "admin-card";
+        item.innerHTML = `
+          <div class="admin-card-title">${c.titulo}</div>
+          <div class="admin-card-meta">
+            Tipo: ${c.tipo} · ${c.fecha || "sin fecha"}<br/>
+            ${
+              c.precio
+                ? `Precio: ${c.precio} · `
+                : ""
+            }Contacto: ${c.contacto || ""}
+          </div>
+          <p>${c.descripcion || ""}</p>
+          <div class="admin-card-actions">
+            <button class="btn-admin approve" type="button" data-admin-action="approve" data-id="${c.id}">
+              ✅ Aprobar y publicar
+            </button>
+            <button class="btn-admin delete" type="button" data-admin-action="delete" data-id="${c.id}">
+              🗑️ Eliminar
+            </button>
+          </div>
+        `;
+
+        item.addEventListener("click", (ev) => {
+          const btn = ev.target.closest("button[data-admin-action]");
+          if (!btn) return;
+          const action = btn.getAttribute("data-admin-action");
+          const id = Number(btn.getAttribute("data-id"));
+          const idx = clasificados.findIndex((x) => x.id === id);
+          if (idx === -1) return;
+
+          if (action === "approve") {
+            clasificados[idx].aprobado = true;
+            alert("Clasificado aprobado. Ahora es visible en la sección pública.");
+          } else if (action === "delete") {
+            if (confirm("¿Seguro que deseas eliminar este clasificado?")) {
+              clasificados.splice(idx, 1);
+              alert("Clasificado eliminado.");
+            }
+          }
+
+          renderClasificados();
+          renderAdminPending();
+        });
+
+        adminPendingListEl.appendChild(item);
+      });
+    }
+
+    // =============================
+    // EVENTOS UI
+    // =============================
+    categoryChipsEl.addEventListener("click", (ev) => {
+      const chip = ev.target.closest(".chip");
+      if (!chip) return;
+      const category = chip.getAttribute("data-category");
+      if (!category) return;
+
+      currentCategory = category;
+
+      Array.from(categoryChipsEl.querySelectorAll(".chip")).forEach((c) =>
+        c.classList.remove("active")
+      );
+      chip.classList.add("active");
+
+      renderBusinesses();
+    });
+
+    searchButtonEl.addEventListener("click", () => {
+      renderBusinesses();
+      document
+        .getElementById("directorio")
+        .scrollIntoView({ behavior: "smooth" });
+    });
+
+    searchInputEl.addEventListener("input", () => {
+      renderBusinesses();
+    });
+
+    clearFiltersButtonEl.addEventListener("click", () => {
+      currentCategory = "todos";
+      currentOrder = "relevancia";
+      searchInputEl.value = "";
+      sectorSelectEl.value = "todos";
+      deliveryOnlyCheckboxEl.checked = false;
+      orderSelectEl.value = "relevancia";
+
+      Array.from(categoryChipsEl.querySelectorAll(".chip")).forEach((c) =>
+        c.classList.remove("active")
+      );
+      const allChip = categoryChipsEl.querySelector(
+        '.chip[data-category="todos"]'
+      );
+      if (allChip) allChip.classList.add("active");
+
+      renderBusinesses();
+    });
+
+    orderSelectEl.addEventListener("change", () => {
+      currentOrder = orderSelectEl.value;
+      renderBusinesses();
+    });
+
+    sectorSelectEl.addEventListener("change", () => {
+      renderBusinesses();
+    });
+
+    deliveryOnlyCheckboxEl.addEventListener("change", () => {
+      renderBusinesses();
+    });
+
+    modalCloseButtonEl.addEventListener("click", closeBusinessModal);
+    modalBackdropEl.addEventListener("click", (ev) => {
+      if (ev.target === modalBackdropEl) {
+        closeBusinessModal();
+      }
+    });
+
+    newsModalCloseButtonEl.addEventListener("click", closeNewsModal);
+    newsModalBackdropEl.addEventListener("click", (ev) => {
+      if (ev.target === newsModalBackdropEl) {
+        closeNewsModal();
+      }
+    });
+
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") {
+        if (modalBackdropEl.classList.contains("active")) {
+          closeBusinessModal();
+        }
+        if (newsModalBackdropEl.classList.contains("active")) {
+          closeNewsModal();
+        }
+      }
+    });
+
+    // =============================
+    // FORM CLASIFICADOS
+    // =============================
+    if (classifiedFormEl) {
+      classifiedFormEl.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const tipo = document.getElementById("classifiedTipo").value;
+        const titulo = document.getElementById("classifiedTitulo").value.trim();
+        const detalles = document.getElementById("classifiedDetalles").value.trim();
+        const precio = document.getElementById("classifiedPrecio").value.trim();
+        const whatsapp = document.getElementById("classifiedWhatsapp").value.trim();
+
+        if (!titulo || !detalles || !whatsapp) {
+          alert("Por favor completa título, detalles y WhatsApp de contacto.");
+          return;
+        }
+
+        const today = new Date();
+        const fechaStr = today.toLocaleDateString("es-CL", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric"
+        });
+
+        const nuevo = {
+          id: Date.now(),
+          tipo: tipo || "Otros",
+          titulo,
+          fecha: `Publicado: ${fechaStr}`,
+          descripcion: detalles,
+          contacto: `WhatsApp +${whatsapp}`,
+          precio: precio || "",
+          aprobado: !MODERAR_CLASIFICADOS
+        };
+
+        clasificados.unshift(nuevo);
+
+        // Enviar a Netlify (backend)
+        sendToNetlify(classifiedFormEl);
+
+        if (MODERAR_CLASIFICADOS) {
+          alert(
+            "Gracias por tu aviso. En esta versión beta quedará pendiente de revisión antes de mostrarse en la lista."
+          );
+          if (isAdmin) {
+            renderAdminPending();
+          }
+        } else {
+          renderClasificados();
+          document
+            .getElementById("clasificados")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+
+        classifiedFormEl.reset();
+      });
+    }
+
+    // =============================
+    // FORM EMPRENDIMIENTOS
+    // =============================
+    if (businessFormEl) {
+      businessFormEl.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const nombre = document
+          .getElementById("businessNombre")
+          .value.trim();
+        const categoria = document.getElementById("businessCategoria").value;
+        const descripcion = document
+          .getElementById("businessDescripcion")
+          .value.trim();
+        const whatsapp = document
+          .getElementById("businessWhatsapp")
+          .value.trim();
+        const instagram = document
+          .getElementById("businessInstagram")
+          .value.trim();
+        const web = document.getElementById("businessWeb").value.trim();
+        const sector = document.getElementById("businessSector").value;
+        const horario = document
+          .getElementById("businessHorario")
+          .value.trim();
+        const delivery = document.getElementById("businessDelivery").checked;
+        const plan = document.getElementById("businessPlan").value || "gratis";
+
+        if (!nombre || !categoria || !descripcion || !sector) {
+          alert("Por favor completa al menos nombre, categoría, descripción y sector.");
+          return;
+        }
+
+        // Enviar a Netlify (backend)
+        sendToNetlify(businessFormEl);
+
+        alert(
+          "¡Gracias! Tus datos se han registrado en esta versión beta. Más adelante podrás conectarlo a un backend para que la ficha se genere automáticamente."
+        );
+
+        businessFormEl.reset();
+      });
+    }
+
+    // =============================
+    // ACCESO ADMIN
+    // =============================
+    if (adminAccessButtonEl) {
+      adminAccessButtonEl.addEventListener("click", () => {
+        const code = prompt("Ingresa el código de administración:");
+        if (!code) return;
+        if (code === ADMIN_CODE) {
+          isAdmin = true;
+          adminPanelEl.style.display = "block";
+          renderAdminPending();
+          alert("Modo administración activado en este navegador.");
+          adminPanelEl.scrollIntoView({ behavior: "smooth" });
+        } else {
+          alert("Código incorrecto.");
+        }
+      });
+    }
+
+    // =============================
+    // INIT
+    // =============================
+    function init() {
+      renderBusinesses();
+      renderNoticias();
+      renderEventos();
+      renderClasificados();
+      renderTicker();
+      renderProBanners();
+      updateKpis();
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>
